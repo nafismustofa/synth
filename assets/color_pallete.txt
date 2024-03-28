@@ -1,0 +1,10 @@
+background = #e0efda
+
+synth body = #ff85a1
+synth body border = #ff477e
+
+black key = #495057
+black key border = #343A40
+
+white key = #E9ECEF
+white key border = #DEE2E6

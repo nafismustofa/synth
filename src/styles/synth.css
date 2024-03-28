@@ -1,0 +1,66 @@
+#synth {
+    display: block;
+    background-color: #ff85a1;
+    border: #ff477e;
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 10px;
+}
+
+#keys {
+    padding: 30px;
+}
+
+#white-row {
+    display: flex;
+    padding: 2px;
+}
+
+#black-row {
+    display: flex;
+    padding: 2px;
+}
+
+button.key {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border-width: 10px;
+    border-style: solid;
+    margin: 2px;
+}
+
+button.white {
+    background-color: #E9ECEF;
+    border-color: #DEE2E6;
+}
+
+button.black {
+    background-color: #495057;
+    border-color: #343A40;
+    position: relative;
+}
+
+button.active {
+    filter: brightness(90%);
+}
+
+#C\# {
+    left: 52px;
+}
+
+#D\# {
+    left: 52px;
+}
+
+#F\# {
+    left: 156px;
+}
+
+#G\# {
+    left: 156px;
+}
+
+#A\# {
+    left: 156px;
+}
