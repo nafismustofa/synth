@@ -9,6 +9,7 @@
 
 #octave-settings {
     display: grid;
+    margin-right: 20px;
 }
 
 button.octave {
@@ -17,7 +18,6 @@ button.octave {
     border-radius: 5px;
     border-style: solid;
     border-width: 4px;
-    margin-right: 20px;
     margin-bottom: 3px;
     margin-top: 3px;
     display: grid;
@@ -52,3 +52,19 @@ button.abc {
     height: 18px;
     pointer-events: none;
 }
+
+#volume-settings {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+.volume { 
+    appearance: slider-vertical;
+    -moz-appearance: slider-vertical;
+    -webkit-appearance: slider-vertical;
+    width: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+ }

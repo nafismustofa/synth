@@ -2,8 +2,9 @@ let synth = new Tone.Synth({oscillator: {type: "sine"}}).toDestination();
 const keys = Array.from(document.getElementsByClassName("key"));
 const octaveKeys = Array.from(document.getElementsByClassName("octave"));
 const waveKeys = Array.from(document.getElementsByClassName("waves"));
-
 const keyPressed = {};
+
+//synth.volume.value = 0;
 
 // =====================================================================
 
