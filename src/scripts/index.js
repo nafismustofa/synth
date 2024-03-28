@@ -1,5 +1,5 @@
 let synth = new Tone.Synth({oscillator: {type: "sine"}}).toDestination();
-
+Tone.start();
 // =====================================================================
 
 const keys = Array.from(document.getElementsByClassName("key"));
