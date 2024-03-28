@@ -1,12 +1,9 @@
 let synth = new Tone.Synth({oscillator: {type: "sine"}}).toDestination();
-const keys = Array.from(document.getElementsByClassName("key"));
-const octaveKeys = Array.from(document.getElementsByClassName("octave"));
-const waveKeys = Array.from(document.getElementsByClassName("waves"));
-const keyPressed = {};
-
-//synth.volume.value = 0;
 
 // =====================================================================
+
+const keys = Array.from(document.getElementsByClassName("key"));
+const keyPressed = {};
 
 // Synth keys with mouse
 document.addEventListener("mousedown", (e) => {
@@ -60,6 +57,8 @@ document.addEventListener("keyup", (e) => {
 
 // =====================================================================
 
+const octaveKeys = Array.from(document.getElementsByClassName("octave"));
+
 // Octave keys with mouse
 document.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("octave")){
@@ -109,12 +108,35 @@ function octaveDown() {
 
 // =====================================================================
 
+// Select wave type
+
+const waveKeys = Array.from(document.getElementsByClassName("waves"));
+
 document.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("waves")) {
         synth = new Tone.Synth({oscillator: {type: e.target.dataset.wave}}).toDestination();
         if (!e.target.classList.contains("active")) {
             waveKeys.forEach((key) => key.classList.remove("active"));
             e.target.classList.add("active");
+            setVolume();
         }
     }
 });
+
+// =====================================================================
+
+// Volume slider
+
+const slider = document.getElementById("volume-slider");
+const volumeValue = document.getElementById("volume-value");
+volumeValue.textContent = slider.value;
+
+slider.oninput = () => {
+    volumeValue.textContent = slider.value;
+    setVolume();
+};
+
+function setVolume() {
+    let db = 50*Math.log10(slider.value/100);
+    synth.volume.value = db;
+}

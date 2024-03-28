@@ -24,7 +24,10 @@
                 <button class="octave" id="octave-down"><img id="octave-img" src="./assets/icons/arrow-down.png"></button>
             </div>
             <div id="volume-settings">
-                <input type="range" min="-32" max="6" value="0" step="1" class="volume">
+                <div id="volume-slider-container">
+                    <input class="volume" id="volume-slider" type="range" min="0" max="100" value="100" step="1">
+                </div>
+                <button class="volume" id="volume-value"></button>
             </div>
         </div>
         <div id="synth">
