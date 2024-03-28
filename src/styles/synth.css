@@ -41,10 +41,6 @@ button.black {
     position: relative;
 }
 
-button.active {
-    filter: brightness(90%);
-}
-
 #C\# {
     left: 52px;
 }

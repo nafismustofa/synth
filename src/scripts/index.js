@@ -1,7 +1,9 @@
-const synth = new Tone.Synth({oscillator: {type: "sawtooth"}}).toDestination();
-const keys = document.getElementsByClassName("key");
-const octaveKeys = document.getElementsByClassName("octave");
+let synth = new Tone.Synth({oscillator: {type: "sine"}}).toDestination();
+const keys = Array.from(document.getElementsByClassName("key"));
+const octaveKeys = Array.from(document.getElementsByClassName("octave"));
+const waveKeys = Array.from(document.getElementsByClassName("waves"));
 
+const keyPressed = {};
 
 // =====================================================================
 
@@ -19,38 +21,40 @@ document.addEventListener("mousedown", (e) => {
     e.target.classList.add("active");
 });
 document.addEventListener("mouseup", (e) => {
-    for (let i = 0; i < keys.length; i++) {
-        if(keys[i].classList.contains("active")) {
-            keys[i].classList.remove("active");
+    keys.forEach((key) => {
+        if (key.classList.contains("active")) {
+            key.classList.remove("active");
             synth.triggerRelease();
         }
-    }
+    });
 });
 
 // Synth keys with keyboard
 document.addEventListener("keydown", (e) => {
     let octave = Number(document.getElementById("octave-value").textContent);
 
-    for (let i = 0; i < keys.length; i++) {
-        if (keys[i].dataset.key === e.key) {
-            if (keys[i].classList.contains("octave-key")) {
-                synth.triggerAttack(keys[i].dataset.note+String(octave+1));
+    keys.forEach((key) => {
+        if (key.dataset.key == e.key && !keyPressed[key.dataset.key]) {
+            if (key.classList.contains("octave-key")) {
+                synth.triggerAttack(key.dataset.note + String(octave + 1));
             } else {
-                synth.triggerAttack(keys[i].dataset.note+String(octave));
+                synth.triggerAttack(key.dataset.note + String(octave));
             }
-            keys[i].classList.add("active");
+            key.classList.add("active");
+            keyPressed[key.dataset.key] = true;
         }
-    }
+    });
 });
 document.addEventListener("keyup", (e) => {
-    for (let i = 0; i < keys.length; i++) {
-        if (keys[i].dataset.key === e.key) {
-            if (keys[i].classList.contains("active")) {
-                keys[i].classList.remove("active");
+    keys.forEach((key) => {
+        if (key.dataset.key === e.key) {
+            if (key.classList.contains("active")) {
+                key.classList.remove("active");
                 synth.triggerRelease();
+                keyPressed[key.dataset.key] = false;
             }
         }
-    }
+    });
 });
 
 // =====================================================================
@@ -66,11 +70,11 @@ document.addEventListener("mousedown", (e) => {
     }
 });
 document.addEventListener("mouseup", (e) => {
-    for (let i = 0; i < octaveKeys.length; i++) {
-        if(octaveKeys[i].classList.contains("active")) {
-            octaveKeys[i].classList.remove("active");
+    octaveKeys.forEach((key) => {
+        if(key.classList.contains("active")) {
+            key.classList.remove("active");
         }
-    }
+    });
 });
 
 // Octave keys with keyboard
@@ -103,3 +107,13 @@ function octaveDown() {
 }
 
 // =====================================================================
+
+document.addEventListener("mousedown", (e) => {
+    if (e.target.classList.contains("waves")) {
+        synth = new Tone.Synth({oscillator: {type: e.target.dataset.wave}}).toDestination();
+        if (!e.target.classList.contains("active")) {
+            waveKeys.forEach((key) => key.classList.remove("active"));
+            e.target.classList.add("active");
+        }
+    }
+});
