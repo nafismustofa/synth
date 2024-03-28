@@ -2,6 +2,9 @@ const synth = new Tone.Synth({oscillator: {type: "sawtooth"}}).toDestination();
 const keys = document.getElementsByClassName("key");
 const octaveKeys = document.getElementsByClassName("octave");
 
+
+// =====================================================================
+
 // Synth keys with mouse
 document.addEventListener("mousedown", (e) => {
     let octave = Number(document.getElementById("octave-value").textContent);
@@ -50,6 +53,8 @@ document.addEventListener("keyup", (e) => {
     }
 });
 
+// =====================================================================
+
 // Octave keys with mouse
 document.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("octave")){
@@ -96,3 +101,7 @@ function octaveDown() {
     octaveValue.innerText = String(Number(octaveValue.textContent)-1);
     document.getElementById("octave-down").classList.add("active");
 }
+
+// =====================================================================
+
+
