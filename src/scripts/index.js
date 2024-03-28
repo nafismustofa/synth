@@ -1,11 +1,5 @@
 let synth = new Tone.Synth({oscillator: {type: "sine"}}).toDestination();
 
-document.addEventListener("click", () => {
-    if (Tone.context.state !== "running") {
-        Tone.start();
-        console.log("Audio ready")
-    }
-});
 // =====================================================================
 
 const keys = Array.from(document.getElementsByClassName("key"));
