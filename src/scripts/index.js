@@ -5,9 +5,10 @@ synth.set({oscillator: {type: "sine"}});
 
 const keys = Array.from(document.getElementsByClassName("key"));
 const keyPressed = {};
+const keysContainer = document.getElementById("keys");
 
 // Synth keys with mouse
-document.addEventListener("mousedown", (e) => {
+keysContainer.addEventListener("mousedown", (e) => {
     const octave = getOctave();
 
     if (e.target.classList.contains("key")) {
@@ -19,7 +20,7 @@ document.addEventListener("mousedown", (e) => {
         e.target.classList.add("active");
     }
 });
-document.addEventListener("mouseup", (e) => {
+keysContainer.getElementById("keys").addEventListener("mouseup", (e) => {
     const octave = getOctave();
 
     keys.forEach((key) => {
@@ -75,9 +76,10 @@ function getOctave() {
 // =====================================================================
 
 const octaveKeys = Array.from(document.getElementsByClassName("octave"));
+const octaveContainer = document.getElementById("octave-settings");
 
 // Octave keys with mouse
-document.addEventListener("mousedown", (e) => {
+octaveContainer.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("octave")){
         if (e.target.id == "octave-up") {
             octaveUp();
@@ -86,7 +88,7 @@ document.addEventListener("mousedown", (e) => {
         }
     }
 });
-document.addEventListener("mouseup", (e) => {
+octaveContainer.addEventListener("mouseup", (e) => {
     octaveKeys.forEach((key) => {
         if(key.classList.contains("active")) {
             key.classList.remove("active");
@@ -128,8 +130,9 @@ function octaveDown() {
 // Select wave type
 
 const waveKeys = Array.from(document.getElementsByClassName("waves"));
+const wavesContainer = document.getElementById("wave-types");
 
-document.addEventListener("mousedown", (e) => {
+wavesContainer.addEventListener("mousedown", (e) => {
     if (e.target.classList.contains("waves")) {
         synth.set({oscillator: {type: e.target.dataset.wave}});
         if (!e.target.classList.contains("active")) {
