@@ -20,7 +20,7 @@ keysContainer.addEventListener("mousedown", (e) => {
         e.target.classList.add("active");
     }
 });
-keysContainer.getElementById("keys").addEventListener("mouseup", (e) => {
+keysContainer.addEventListener("mouseup", (e) => {
     const octave = getOctave();
 
     keys.forEach((key) => {

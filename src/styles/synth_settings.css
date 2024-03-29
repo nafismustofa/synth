@@ -1,8 +1,3 @@
-@font-face {
-    font-family: synth-font;
-    src: url(../../assets/fonts/synth_font.ttf);
-}
-
 #synth-settings {
     display: flex;
     flex-direction: column;

@@ -6,6 +6,11 @@
     --tool: #2c7da0;
 }
 
+@font-face {
+    font-family: synth-font;
+    src: url(../../assets/fonts/synth_font.ttf);
+}
+
 body {
     background-color: var(--background);
     display: flex;
