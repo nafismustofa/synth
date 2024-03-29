@@ -1,7 +1,7 @@
 #synth {
     display: block;
-    background-color: #ff85a1;
-    border: #ff477e;
+    background-color: var(--base);
+    border: var(--border);
     border-style: solid;
     border-width: 10px;
     border-radius: 10px;

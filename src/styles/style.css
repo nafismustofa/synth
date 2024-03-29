@@ -1,5 +1,13 @@
+:root {
+    --background: #f2dfd7;
+    --base: #89c2d9;
+    --border: #61a5c2;
+    --btn-base: #edf2fb;
+    --tool: #2c7da0;
+}
+
 body {
-    background-color: #e0efda;
+    background-color: var(--background);
     display: flex;
     justify-content: center;
     align-items: center;
