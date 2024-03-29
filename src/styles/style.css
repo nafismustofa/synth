@@ -18,4 +18,5 @@ body {
 
 .active {
     filter: brightness(80%);
+    transform: scale(0.95);
 }
